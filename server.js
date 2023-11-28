@@ -7,21 +7,23 @@ app.get('/', function(req, res) {
 });
 
 // GET 요청을 받는 방법
-app.get('/:animal', function(req, res) {
-    // routing 경로로 받은 값
-    const animal = req.params.animal;
-    // query param으로 받은 값. json 형식으로 나온다.
-    const query = req.query;
-
-    console.log(query);
-    let sound = {
-        'animal' : animal
+app.get('/sound/:name', function(req, res) {
+    console.log(req.params);
+    const {name} = req.params;
+    
+    let sound = {'sound' : '멍멍', 'cat' : '야옹'};
+    
+    if(name === 'dog') {
+        res.json({'sound' : '멍멍'});
+    } else if( name === 'cat') {
+        res.json({'sound' : '야옹'});
+    } else {
+        res.json({'sound' : '이 동물은 무엇인가'});
     }
-    res.json(sound);
 });
 
 // POST 요청을 받는 방법
-app.post('/:animal', (req, res) => {
+app.post('/sound/:animal', (req, res) => {
     const body = req.body;
     console.log(body);
 })
