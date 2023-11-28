@@ -6,16 +6,10 @@ app.get('/', function(req, res) {
     res.send('Hello world');
 });
 
-app.get('/dog', function(req, res) {
+app.get('/:animal', function(req, res) {
+    const animal = req.params.animal;
     let sound = {
-        'sound' : '멍멍'
-    }
-    res.json(sound);
-});
-
-app.get('/cat', function(req, res) {
-    let sound = {
-        'sound' : '야옹'
+        'animal' : animal
     }
     res.json(sound);
 });
