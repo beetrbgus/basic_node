@@ -10,14 +10,14 @@ app.get('/dog', function(req, res) {
     let sound = {
         'sound' : '멍멍'
     }
-    res.send(sound);
+    res.json(sound);
 });
 
 app.get('/cat', function(req, res) {
     let sound = {
         'sound' : '야옹'
     }
-    res.send(sound);
+    res.json(sound);
 });
 
 app.listen(port, ()=> {
