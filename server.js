@@ -7,7 +7,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/:animal', function(req, res) {
+    // routing 경로로 받은 값
     const animal = req.params.animal;
+    // query param으로 받은 값. json 형식으로 나온다.
+    const query = req.query;
+
+    console.log(query);
     let sound = {
         'animal' : animal
     }
